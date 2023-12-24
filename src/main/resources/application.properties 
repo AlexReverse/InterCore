@@ -1,2 +1,0 @@
-spring.thymeleaf.prefix=classpath:/mytemplate/
-spring.thymeleaf.suffix=.html

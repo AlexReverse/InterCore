@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class GamingDiscipline {
     private final String id;
-    private final String name;
+    private final String[] role;
     private final Type type;
 
     public enum Type{

@@ -12,6 +12,7 @@ public class TeamInformation {
     private String GamingDiscipline;
     private String dateCreation;
     private String[] vacancy;
+    private String srRating;
 
     MemberComparator memberComparator = new MemberComparator();
     private Set<TeamMember> teamMemberSet = new TreeSet<>(memberComparator);

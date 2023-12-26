@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>InterCore Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}">
+</head>
+
+<body>
+    <h1>Create player!</h1>
+    <img src="/static/images/InterCore.png" width="510" th:src="@{images/InterCore.png}" alt="false" height="200">
+
+    <form method="POST" th:object="${member}">
+        <div class="grid">
+            <div class="discipline-group" id="CS2">
+                <h3>CS 2:</h3>
+                <div th:each="discipline : ${CS2}">
+                    <input th:field="*{disciplines}" type="checkbox" th:value="${discipline.id}"/>
+                    <span th:text="${discipline.role}">discipline</span><br/>
+            </div>
+        </div>
+
+        </div>
+    </form>
+</body>
+</html>

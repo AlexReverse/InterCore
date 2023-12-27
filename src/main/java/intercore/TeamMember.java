@@ -7,8 +7,9 @@ import java.util.List;
 public class TeamMember {
     private String fio;
     private String speciality;
-    private List<Disciplines> gamingDisciplines;
+    private List<Discipline> gamingDisciplines;
     private String information;
+    private String role;
     private String rating;
     private String discord;
 }

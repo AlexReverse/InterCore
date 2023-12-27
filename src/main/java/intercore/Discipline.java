@@ -3,9 +3,9 @@ package intercore;
 import lombok.Data;
 
 @Data
-public class Disciplines {
+public class Discipline {
     private final String id;
-    private final String role;
+    private final String name;
     private final Type type;
 
     public enum Type{

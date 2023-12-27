@@ -1,6 +1,9 @@
 package intercore;
 
 import lombok.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -14,11 +17,12 @@ public class TeamInformation {
     private String[] vacancy;
     private String srRating;
 
-    MemberComparator memberComparator = new MemberComparator();
-    private Set<TeamMember> teamMemberSet = new TreeSet<>(memberComparator);
+//    MemberComparator memberComparator = new MemberComparator();
+//    private Set<TeamMember> teamMemberSet = new TreeSet<>(memberComparator);
+    private List<TeamMember> teamMembers = new ArrayList<>();
 
     public void addMember(TeamMember teamMember) {
-        this.teamMemberSet.add(teamMember);
+        this.teamMembers.add(teamMember);
         System.out.printf("Пользователь %s - успешно добавлен!", teamMember.getFio());
     }
 }

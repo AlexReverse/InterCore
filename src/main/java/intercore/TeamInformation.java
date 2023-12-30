@@ -4,8 +4,6 @@ import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 @Data
 public class TeamInformation {
@@ -19,10 +17,10 @@ public class TeamInformation {
 
 //    MemberComparator memberComparator = new MemberComparator();
 //    private Set<TeamMember> teamMemberSet = new TreeSet<>(memberComparator);
-    private List<TeamMember> teamMembers = new ArrayList<>();
+    private List<Member> members = new ArrayList<>();
 
-    public void addMember(TeamMember teamMember) {
-        this.teamMembers.add(teamMember);
-        System.out.printf("Пользователь %s - успешно добавлен!", teamMember.getFio());
+    public void addMember(Member member) {
+        this.members.add(member);
+        System.out.printf("Пользователь %s - успешно добавлен!", member.getName());
     }
 }

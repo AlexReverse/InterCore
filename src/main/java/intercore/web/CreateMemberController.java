@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import intercore.Discipline;
 import intercore.Discipline.Type;
-import intercore.TeamInformation;
+import intercore.MemberInformation;
 import intercore.Member;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,7 @@ import javax.validation.Valid;
 @Slf4j
 @Controller
 @RequestMapping("/create")
-@SessionAttributes("teamInformation")
+@SessionAttributes("memberInformation")
 public class CreateMemberController {
     @ModelAttribute
     public void addGamingDisciplineToModel(Model model) {
@@ -82,9 +82,9 @@ public class CreateMemberController {
         }
     }
 
-    @ModelAttribute(name = "teamInformation")
-    public TeamInformation information() {
-        return new TeamInformation();
+    @ModelAttribute(name = "memberInformation")
+    public MemberInformation information() {
+        return new MemberInformation();
     }
 
     @ModelAttribute(name = "member")
@@ -100,16 +100,16 @@ public class CreateMemberController {
     @PostMapping
     public String processMember(
             @Valid Member member, Errors errors,
-            @ModelAttribute TeamInformation teamInformation) {
+            @ModelAttribute MemberInformation memberInformation) {
 
         if (errors.hasErrors()) {
             return "create";
         }
 
-        teamInformation.addMember(member);
+        memberInformation.addMember(member);
         log.info("Processing member: {}", member);
 
-        return "redirect:/member/current";
+        return "redirect:/create/information";
     }
     private Iterable<Discipline> filterByType(List<Discipline> disciplines, Type type) {
         return disciplines

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>InterCore Cloud</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+</head>
+
+<body>
+    <form method="POST" th:action="@{/information}" th:object="${memberInformation}">
+        <h1>Enter player information!</h1>
+
+        <img src="/static/images/InterCore.png" width="510" th:src="@{images/InterCore.png}" alt="false" height="200">
+
+        <h3>Your player:</h3>
+        <a th:href="@{/create}" id="another">Create another player</a><br/>
+        <ul>
+            <li th:each="member : ${memberInformation.members}">
+                <span th:text="${member.nickname}">member nickname</span>
+            </li>
+        </ul>
+
+        <label for="surname">Surname: </label>
+        <input type="text" th:field="*{surname}"/>
+        <br/>
+
+        <label for="name">Name: </label>
+        <input type="text" th:field="*{name}"/>
+        <br/>
+
+        <label for="speciality">Speciality of student: </label>
+        <input type="text" th:field="*{speciality}"/>
+        <br/>
+
+        <label for="rating">Actual rating: </label>
+        <input type="text" th:field="*{rating}"/>
+        <br/>
+
+        <label for="discord">Discord id: </label>
+        <input type="text" th:field="*{discord}"/>
+        <br/>
+
+        <label for="birthday">Birthday (Must be formatted DD/MM/YY): </label>
+        <input type="text" th:field="*{birthday}"/>
+        <br/>
+
+        <input type="submit" value="Submit player">
+    </form>
+</body>
+</html>

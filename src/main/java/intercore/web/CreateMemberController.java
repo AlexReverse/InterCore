@@ -76,7 +76,7 @@ public class CreateMemberController {
                 new Discipline("No team needed", "Mortal Kombat", Type.SOLOGAMES)
         );
 
-        Type[] types = Discipline.Type.values();
+        Discipline.Type[] types = Discipline.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(), filterByType(disciplines, type));
         }
@@ -109,7 +109,7 @@ public class CreateMemberController {
         memberInformation.addMember(member);
         log.info("Processing member: {}", member);
 
-        return "redirect:/create/information";
+        return "redirect:/information/current";
     }
     private Iterable<Discipline> filterByType(List<Discipline> disciplines, Type type) {
         return disciplines

@@ -1,11 +1,10 @@
 package intercore;
 
-import lombok.Data;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
+import lombok.Data;
 
 @Data
 public class MemberInformation {
@@ -14,7 +13,7 @@ public class MemberInformation {
     private String surname;
 
     @NotBlank(message = "Name is required")
-    private String name;
+    private String realName;
 
     @NotBlank(message = "Speciality is required")
     private String speciality;

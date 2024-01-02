@@ -15,8 +15,7 @@
         <a th:href="@{/create}" id="another">Create another player</a><br/>
         <ul>
             <li th:each="member : ${memberInformation.members}">
-                <span th:text="${member.name}">member nickname</span>
-            </li>
+                <span th:text="${member.name}">member nickname</span></li>
         </ul>
 
         <div th:if="${#fields.hasErrors()}">

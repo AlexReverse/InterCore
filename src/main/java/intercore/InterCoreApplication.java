@@ -4,8 +4,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApplicationInterCore {
+public class InterCoreApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationInterCore.class, args);
+        SpringApplication.run(InterCoreApplication.class, args);
     }
 }

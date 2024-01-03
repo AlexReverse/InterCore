@@ -1,30 +1,32 @@
 package intercore;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
 import java.util.List;
 import java.util.ArrayList;
+
+import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class MemberInformation {
 
-    @NotBlank(message="Surname is required")
+    @NotEmpty(message="Surname is required")
     private String surname;
 
-    @NotBlank(message="Name is required")
+    @NotEmpty(message="Name is required")
     private String realName;
 
-    @NotBlank(message="Speciality is required")
+    @NotEmpty(message="Speciality is required")
     private String speciality;
 
-    @NotBlank(message="Rating is required")
+    @NotEmpty(message="Rating is required")
     private String rating;
 
-    @NotBlank(message="Discord ID is required")
+    @NotEmpty(message="Discord ID is required")
     private String discord;
 
-    @Pattern(regexp="^(0[0-3]|1[0-9])([\\/])(0[1-9]|1[0-2])([\\/])([0-9][0-9])$", message="Must be formatted DD/MM/YY")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @NotEmpty(message="Birthday must be like YYYY-MM-DD")
     private String birthday;
 
     private List<Member> members = new ArrayList<>();

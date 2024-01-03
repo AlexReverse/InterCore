@@ -1,17 +1,14 @@
 package intercore.web;
 
 import intercore.MemberInformation;
-import javax.validation.Valid;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 
 @Slf4j
 @Controller
@@ -24,7 +21,7 @@ public class InformationController {
     }
 
     @PostMapping
-    public String processOrder(@Valid MemberInformation memberInformation, Errors errors,
+    public String processOrder(@Valid @ModelAttribute("memberInformation") MemberInformation memberInformation, Errors errors,
                                SessionStatus sessionStatus) {
         if (errors.hasErrors()) {
             return "informationForm";

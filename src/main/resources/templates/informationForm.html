@@ -10,6 +10,7 @@
         <h1>Enter player information!</h1>
 
         <img th:src="@{/images/InterCore.png}"/>
+        <link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
 
         <h3>Your player:</h3>
         <a th:href="@{/create}" id="another">Create another player</a><br/>
@@ -59,7 +60,7 @@
               th:errors="*{discord}">Discord Error</span>
         <br/>
 
-        <label for="birthday">Birthday (Must be formatted DD/MM/YY): </label>
+        <label for="birthday">Birthday (Must be formatted YYYY-MM-DD): </label>
         <input type="text" th:field="*{birthday}"/>
         <span class="validationError"
               th:if="${#fields.hasErrors('birthday')}"

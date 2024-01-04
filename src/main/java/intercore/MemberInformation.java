@@ -1,14 +1,28 @@
 package intercore;
 
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.ArrayList;
 
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
-public class MemberInformation {
+@Entity
+public class MemberInformation implements Serializable {
+
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private Date placedAt = new Date();
 
     @NotEmpty(message="Surname is required")
     private String surname;
@@ -29,6 +43,7 @@ public class MemberInformation {
     @NotEmpty(message="Birthday must be like YYYY-MM-DD")
     private String birthday;
 
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Member> members = new ArrayList<>();
 
     public void addMember(Member member) {

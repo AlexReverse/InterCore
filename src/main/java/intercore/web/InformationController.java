@@ -2,19 +2,24 @@ package intercore.web;
 
 import intercore.MemberInformation;
 
+import intercore.data.InformationRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
-import lombok.extern.slf4j.Slf4j;
 
-
-@Slf4j
 @Controller
 @RequestMapping("/information")
 @SessionAttributes("memberInformation")
 public class InformationController {
+
+    private InformationRepository informationRepository;
+
+    public InformationController(InformationRepository informationRepository) {
+        this.informationRepository=informationRepository;
+    }
+
     @GetMapping("/current")
     public String informationForm(){
         return "informationForm";
@@ -27,7 +32,7 @@ public class InformationController {
             return "informationForm";
         }
 
-        log.info("Player submitted: {}", memberInformation);
+        informationRepository.save(memberInformation);
         sessionStatus.setComplete();
 
         return "redirect:/";

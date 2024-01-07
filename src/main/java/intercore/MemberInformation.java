@@ -1,6 +1,5 @@
 package intercore;
 
-import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -15,7 +14,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class MemberInformation implements Serializable {
 
-    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id

@@ -1,7 +1,6 @@
 package intercore.web;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +9,8 @@ import intercore.Discipline.Type;
 import intercore.MemberInformation;
 import intercore.Member;
 import intercore.data.DisciplineRepository;
+import intercore.data.MemberRepository;
+import intercore.data.UserRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,18 +23,22 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/create")
-@SessionAttributes("memberInformation")
+@SessionAttributes("information")
 public class CreateMemberController {
 
     private final DisciplineRepository disciplineRepository;
+    private MemberRepository memberRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    public CreateMemberController(DisciplineRepository disciplineRepository) {
+    public CreateMemberController(DisciplineRepository disciplineRepository, MemberRepository memberRepository, UserRepository userRepository) {
         this.disciplineRepository=disciplineRepository;
+        this.memberRepository=memberRepository;
+        this.userRepository=userRepository;
     }
 
     @ModelAttribute
-    public void addGamingDisciplineToModel(Model model) {
+    public void addDisciplinesToModel(Model model) {
         List<Discipline> disciplines = new ArrayList<>();
         disciplineRepository.findAll().forEach(i -> disciplines.add(i));
 
@@ -43,7 +48,7 @@ public class CreateMemberController {
         }
     }
 
-    @ModelAttribute(name = "memberInformation")
+    @ModelAttribute(name = "information")
     public MemberInformation information() {
         return new MemberInformation();
     }
@@ -61,14 +66,16 @@ public class CreateMemberController {
     @PostMapping
     public String processMember(
             @Valid Member member, Errors errors,
-            @ModelAttribute MemberInformation memberInformation) {
+            @ModelAttribute MemberInformation information) {
+
+        log.info("--- Saving information");
 
         if (errors.hasErrors()) {
             return "create";
         }
 
-        memberInformation.addMember(member);
-        log.info("Processing member: {}", member);
+        Member saved = memberRepository.save(member);
+        information.addMember(saved);
 
         return "redirect:/information/current";
     }

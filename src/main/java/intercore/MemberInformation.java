@@ -20,7 +20,10 @@ public class MemberInformation implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Date placedAt = new Date();
+    private Date placedAt;
+
+    @ManyToOne
+    private User user;
 
     @NotEmpty(message="Surname is required")
     private String surname;
@@ -41,10 +44,15 @@ public class MemberInformation implements Serializable {
     @NotEmpty(message="Birthday must be like YYYY-MM-DD")
     private String birthday;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @ManyToMany(targetEntity = Member.class)
     private List<Member> members = new ArrayList<>();
 
     public void addMember(Member member) {
         this.members.add(member);
+    }
+
+    @PrePersist
+    void placedAt(){
+        this.placedAt=new Date();
     }
 }

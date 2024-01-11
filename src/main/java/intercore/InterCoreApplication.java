@@ -5,6 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Profile;
 
 @SpringBootApplication
 public class InterCoreApplication {
@@ -13,6 +14,7 @@ public class InterCoreApplication {
     }
 
     @Bean
+    @Profile("prod")
     public CommandLineRunner dataLoader(DisciplineRepository repo) {
         return new CommandLineRunner() {
             @Override

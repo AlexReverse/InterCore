@@ -12,3 +12,26 @@ spring:
           auto: update
         ddl-auto: update
         use-new-id-generator-mappings: false
+
+---
+spring:
+  profiles:
+    active: prod
+
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/intercore
+    username: postgres
+    password: "@ncHocl&ffkfp)h"
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        ddl-auto: update
+        use-new-id-generator-mappings: false
+
+logging:
+  level:
+    tacos: WARN

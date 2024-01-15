@@ -2,7 +2,6 @@ package intercore.restclient;
 
 import intercore.Discipline;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.hateoas.client.Traverson;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestOperations;
 

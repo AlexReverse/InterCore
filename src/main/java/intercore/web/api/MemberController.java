@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/api/members", produces = "application/json")
-@CrossOrigin(origins = {"http:localhost:8080", "http://intercorerudn.ru"})
+@CrossOrigin(origins = {"http://localhost:8080"})
 public class MemberController {
     private MemberRepository memberRepository;
 

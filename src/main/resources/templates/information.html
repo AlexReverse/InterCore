@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <form method="POST" th:action="@{/information}" th:object="${memberInformation}">
+    <form method="POST" th:action="@{/information}" th:object="${information}">
         <h1>Enter player information!</h1>
 
         <img th:src="@{/images/InterCore.png}"/>
@@ -15,7 +15,7 @@
         <h3>Your player:</h3>
         <a th:href="@{/create}" id="another">Create another player</a><br/>
         <ul>
-            <li th:each="member : ${memberInformation.members}">
+            <li th:each="member : ${information.members}">
                 <span th:text="${member.name}">member nickname</span></li>
         </ul>
 

@@ -71,8 +71,11 @@ public class CreateMemberController {
         log.info("--- Saving information");
 
         if (errors.hasErrors()) {
+            log.info("--- saving is not successful");
             return "create";
         }
+
+        log.info("--- saved successfully");
 
         Member saved = memberRepository.save(member);
         information.addMember(saved);

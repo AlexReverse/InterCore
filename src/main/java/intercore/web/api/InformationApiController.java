@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 @RestController
 @RequestMapping(path="/api/information", produces = "application/json")
-@CrossOrigin(origins = {"http:localhost:8080", "http://intercorerudn.ru"})
+@CrossOrigin(origins = {"http:localhost:8080"})
 public class InformationApiController {
 
     private InformationRepository informationRepository;

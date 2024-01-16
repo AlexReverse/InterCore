@@ -1,5 +1,6 @@
 package intercore.web;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,6 +9,7 @@ import intercore.Discipline;
 import intercore.Discipline.Type;
 import intercore.MemberInformation;
 import intercore.Member;
+import intercore.User;
 import intercore.data.DisciplineRepository;
 import intercore.data.MemberRepository;
 import intercore.data.UserRepository;
@@ -56,6 +58,13 @@ public class CreateMemberController {
     @ModelAttribute(name = "member")
     public Member member() {
         return new Member();
+    }
+
+    @ModelAttribute(name = "user")
+    public User user(Principal principal) {
+        String username = principal.getName();
+        User user = userRepository.findByUsername(username);
+        return user;
     }
 
     @GetMapping

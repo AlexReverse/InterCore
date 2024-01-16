@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
-@RestResource(rel = "members", path = "members")
+//@RestResource(rel = "members", path = "members")
 public class Member {
 
     @Id
@@ -28,9 +28,6 @@ public class Member {
     @ManyToMany(targetEntity = Discipline.class)
     private List<Discipline> disciplines;
 
-//    public void addMember(Discipline discipline) {
-//        this.disciplines.add(discipline);
-//    }
     @PrePersist
     void createdAt(){
         this.createdAt = new Date();

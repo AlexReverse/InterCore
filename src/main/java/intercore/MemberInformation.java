@@ -47,8 +47,8 @@ public class MemberInformation implements Serializable {
     @ManyToMany(targetEntity = Member.class)
     private List<Member> members = new ArrayList<>();
 
-    public void addMember(Member member) {
-        this.members.add(member);
+    public void addMember(Member create) {
+        this.members.add(create);
     }
 
     @PrePersist

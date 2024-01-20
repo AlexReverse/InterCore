@@ -1,6 +1,6 @@
 package intercore.web;
 
-import intercore.MemberInformation;
+import intercore.domain.MemberInformation;
 import intercore.data.InformationRepository;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;

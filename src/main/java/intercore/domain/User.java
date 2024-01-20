@@ -1,4 +1,4 @@
-package intercore;
+package intercore.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

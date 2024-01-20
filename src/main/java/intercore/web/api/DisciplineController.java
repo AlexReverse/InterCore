@@ -1,12 +1,11 @@
 package intercore.web.api;
 
-import intercore.Discipline;
+import intercore.domain.Discipline;
 import intercore.data.DisciplineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path="/api/disciplines", produces = "application/json")
@@ -21,7 +20,22 @@ public class DisciplineController {
     }
 
     @GetMapping
+    @PreAuthorize("#hasRole('USER')")
     public Iterable<Discipline> allDisciplines() {
         return disciplineRepository.findAll();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    @PreAuthorize("#hasRole('USER')")
+    public Discipline saveDiscipline(@RequestBody Discipline discipline) {
+        return disciplineRepository.save(discipline);
+    }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("#hasRole('USER')")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    private void deleteDiscipline(@PathVariable("id") String disciplineId) {
+        disciplineRepository.deleteById(disciplineId);
     }
 }

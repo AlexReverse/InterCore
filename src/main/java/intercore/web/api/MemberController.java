@@ -1,6 +1,6 @@
 package intercore.web.api;
 
-import intercore.Member;
+import intercore.domain.Member;
 import intercore.data.MemberRepository;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;

@@ -4,7 +4,7 @@ import intercore.data.DisciplineRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
-import intercore.Discipline;
+import intercore.domain.Discipline;
 
 @Component
 public class MemberByIdConverter implements Converter<String, Discipline> {

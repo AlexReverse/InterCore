@@ -1,4 +1,4 @@
-package intercore;
+package intercore.domain;
 
 import java.io.Serializable;
 import java.util.Date;

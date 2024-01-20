@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import intercore.Discipline;
-import intercore.Discipline.Type;
-import intercore.MemberInformation;
-import intercore.Member;
-import intercore.User;
+import intercore.domain.Discipline;
+import intercore.domain.Discipline.Type;
+import intercore.domain.MemberInformation;
+import intercore.domain.Member;
+import intercore.domain.User;
 import intercore.data.DisciplineRepository;
 import intercore.data.MemberRepository;
 import intercore.data.UserRepository;

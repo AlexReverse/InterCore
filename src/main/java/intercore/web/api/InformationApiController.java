@@ -1,6 +1,6 @@
 package intercore.web.api;
 
-import intercore.MemberInformation;
+import intercore.domain.MemberInformation;
 import intercore.data.InformationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;

@@ -1,6 +1,6 @@
 package intercore.data;
 
-import intercore.Member;
+import intercore.domain.Member;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.PagingAndSortingRepository;
 

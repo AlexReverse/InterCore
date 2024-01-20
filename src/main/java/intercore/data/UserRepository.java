@@ -1,6 +1,6 @@
 package intercore.data;
 
-import intercore.User;
+import intercore.domain.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface UserRepository extends CrudRepository<User, Long> {

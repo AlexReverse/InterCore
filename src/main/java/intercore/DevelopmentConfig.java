@@ -1,6 +1,7 @@
 package intercore;
 
 import intercore.data.DisciplineRepository;
+import intercore.domain.Discipline;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

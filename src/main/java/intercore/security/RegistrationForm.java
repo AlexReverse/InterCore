@@ -1,6 +1,6 @@
 package intercore.security;
 
-import intercore.User;
+import intercore.domain.User;
 import lombok.Data;
 import org.springframework.security.crypto.password.PasswordEncoder;
 

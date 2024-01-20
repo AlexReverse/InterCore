@@ -1,6 +1,6 @@
 package intercore.restclient;
 
-import intercore.Discipline;
+import intercore.domain.Discipline;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestOperations;

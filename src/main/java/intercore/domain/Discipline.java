@@ -1,4 +1,4 @@
-package intercore;
+package intercore.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

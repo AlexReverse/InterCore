@@ -1,4 +1,4 @@
-package intercore;
+package intercore.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

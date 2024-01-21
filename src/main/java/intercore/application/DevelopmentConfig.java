@@ -1,4 +1,4 @@
-package intercore;
+package intercore.application;
 
 import intercore.data.DisciplineRepository;
 import intercore.domain.Discipline;

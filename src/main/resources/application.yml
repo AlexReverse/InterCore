@@ -1,4 +1,9 @@
 spring:
+  kafka:
+    bootstrap-servers:
+      - kafka.intercore.com:9092
+      - localhost:9092
+    default-topic: intercore.information.topic
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/intercore

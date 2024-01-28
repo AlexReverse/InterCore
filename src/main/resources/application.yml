@@ -23,3 +23,13 @@ spring:
     datasource:
       generate-unique-name: false
       name: intercore
+management:
+  info:
+    git:
+      mode: full
+  endpoints:
+    health:
+      show-details: always
+    web:
+      base-patch: /management
+      include: health, info, beans, conditions

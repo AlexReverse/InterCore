@@ -25,8 +25,8 @@ public class InformationController {
     }
 
     @PostMapping
-    public String processOrder(@Valid @ModelAttribute("information") MemberInformation information, Errors errors,
-                               SessionStatus sessionStatus) {
+    public String processInformation(@Valid @ModelAttribute("information") MemberInformation information, Errors errors,
+                                     SessionStatus sessionStatus) {
         if (errors.hasErrors()) {
             return "information";
         }

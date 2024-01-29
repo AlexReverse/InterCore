@@ -4,13 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import jakarta.validation.constraints.Size;
+import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.Date;
 import java.util.List;
 
 @Data
 @Entity
-//@RestResource(rel = "members", path = "members")
+@RestResource(rel = "members", path = "members")
 public class Member {
 
     @Id

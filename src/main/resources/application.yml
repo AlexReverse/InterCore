@@ -33,3 +33,6 @@ management:
     web:
       base-patch: /management
       include: health, info, beans, conditions
+logging:
+  level:
+    org.springframework.security: trace

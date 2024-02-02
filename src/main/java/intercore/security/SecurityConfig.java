@@ -25,6 +25,7 @@ public class SecurityConfig {
         return http
                 .authorizeHttpRequests((authz) -> authz
                         .requestMatchers("/images/**").permitAll()
+                        .requestMatchers("/styles2.css/**").permitAll()
                         .requestMatchers("/register").permitAll()
                         .anyRequest().authenticated()
                 )

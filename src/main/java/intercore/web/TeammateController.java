@@ -22,6 +22,11 @@ public class TeammateController {
         this.teammateRepository = teammateRepository;
     }
 
+    @ModelAttribute
+    public Teammate teammate() {
+        return new Teammate();
+    }
+
     @GetMapping
     public String showTeammateForm() {
         return "teammate";

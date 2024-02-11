@@ -21,7 +21,7 @@ public class Teammate {
     @Size(min = 3, message = "Teammate Name must be at least 3 characters long")
     private String teamName;
 
-    private Boolean cap;
+    private String cap;
     private Date createdAt;
     private String game;
 

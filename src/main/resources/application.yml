@@ -1,9 +1,16 @@
+application:
+  kafka:
+    topic: "demo-topic"
+
 spring:
   kafka:
-    bootstrap-servers:
-      - kafka.intercore.com:9092
-      - localhost:9092
-    default-topic: intercore.information.topic
+    producer:
+      bootstrap-servers: "127.0.0.1:9092"
+      client-id: "demo-producer"
+#    bootstrap-servers:
+#      - kafka.intercore.com:9092
+#      - localhost:9092
+#    default-topic: intercore.information.topic
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/intercore

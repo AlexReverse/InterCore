@@ -1,0 +1,38 @@
+spring:
+  kafka:
+    bootstrap-servers:
+      - kafka.intercore.com:9092
+      - localhost:9092
+    default-topic: intercore.information.topic
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/intercore
+    username: postgres
+    password: "@ncHocl&ffkfp)h"
+  jpa:
+    generate-ddl: true
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        ddl-auto: update
+        use-new-id-generator-mappings: false
+  data:
+    rest:
+      base-path: /data-api
+    datasource:
+      generate-unique-name: false
+      name: intercore
+management:
+  info:
+    git:
+      mode: full
+  endpoints:
+    health:
+      show-details: always
+    web:
+      base-patch: /management
+      include: health, info, beans, conditions
+logging:
+  level:
+    org.springframework.security: trace

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>InterCore Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles2.css}" />
+    <meta charset="utf-8" />
+</head>
+
+<body>
+<h1>Login</h1>
+<img th:src="@{/images/InterCore.png}"/>
+<link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
+
+<div th:if="${error}">
+    Unable to login. Check your username/password.
+</div>
+
+<p>New here? Click
+<a th:href="@{/register}">here</a> to register. </p>
+
+<form method="POST" th:action="@{/login}" id="loginForm" class="form-horizontal">
+    <label for="username">Username: </label>
+    <input type="text" name="username" id="username" /><br/>
+
+    <label for="password">Password: </label>
+    <input type="password" name="password" id="password" /><br/>
+
+    <button type="submit">Login</button>
+</form>
+</body>
+</html>

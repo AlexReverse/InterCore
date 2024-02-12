@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>InterCore Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles2.css}" />
+    <meta charset="utf-8" />
+</head>
+
+<body>
+<h1>Create player</h1>
+<img src="/static/images/InterCore.png" width="510" th:src="@{images/InterCore.png}" alt="false" height="200">
+<link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
+
+<form method="POST" th:object="${member}">
+
+    <span class="validationError"
+          th:if="${#fields.hasErrors('disciplines')}"
+          th:errors="*{disciplines}">DISCIPLINE Error</span>
+
+    <div class="grid">
+        <div class="discipline-group" id="dota2">
+            <h3>Dota 2</h3>
+            <div th:each="discipline : ${dota2}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="cs2">
+            <h3>Counter Strike 2</h3>
+            <div th:each="discipline : ${cs2}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="overwatch">
+            <h3>Overwatch 2</h3>
+            <div th:each="discipline : ${overwatch}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="valorant">
+            <h3>Valorant</h3>
+            <div th:each="discipline : ${valorant}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="lol">
+            <h3>League of Legends</h3>
+            <div th:each="discipline : ${lol}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="rainbow6">
+            <h3>Tom Clancy's Rainbow Six Siege</h3>
+            <div th:each="discipline : ${rainbow6}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+        <div class="discipline-group" id="sologames">
+            <h3>No team needed</h3>
+            <div th:each="discipline : ${sologames}">
+                <input th:field="*{disciplines}" type="checkbox"
+                       th:value="${discipline.id}"/>
+                <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+
+
+        <h3>Nickname your player:</h3>
+        <input type="text" th:field="*{name}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('name')}"
+              th:errors="*{name}">Name Error</span>
+        <br/>
+
+        <button>Submit Player</button>
+    </div>
+</form>
+</body>
+</html>

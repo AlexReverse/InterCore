@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>InterCore Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles2.css}" />
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <form method="POST" th:action="@{/information}" th:object="${information}">
+        <h1>Enter player information!</h1>
+
+        <img th:src="@{/images/InterCore.png}"/>
+        <link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
+
+        <h3>Your player:</h3>
+        <a th:href="@{/create}" id="another">Create another player</a><br/>
+        <ul>
+            <li th:each="member : ${information.members}">
+                <span th:text="${member.name}">member nickname</span></li>
+        </ul>
+
+        <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        Please correct the problems below and resubmit.
+        </span>
+        </div>
+
+        <label for="surname">Surname: </label>
+        <input type="text" th:field="*{surname}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('surname')}"
+              th:errors="*{surname}">Surname Error</span>
+        <br/>
+
+        <label for="realName">Name: </label>
+        <input type="text" th:field="*{realName}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('realName')}"
+              th:errors="*{realName}">Name Error</span>
+        <br/>
+
+        <label for="speciality">Speciality of student: </label>
+        <input type="text" th:field="*{speciality}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('speciality')}"
+              th:errors="*{speciality}">Speciality Error</span>
+        <br/>
+
+        <label for="rating">Actual rating: </label>
+        <input type="text" th:field="*{rating}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('rating')}"
+              th:errors="*{rating}">Rating Error</span>
+        <br/>
+
+        <label for="discord">Discord id: </label>
+        <input type="text" th:field="*{discord}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('discord')}"
+              th:errors="*{discord}">Discord Error</span>
+        <br/>
+
+        <label for="birthday">Birthday (Must be formatted YYYY-MM-DD): </label>
+        <input type="text" th:field="*{birthday}"/>
+        <span class="validationError"
+              th:if="${#fields.hasErrors('birthday')}"
+              th:errors="*{birthday}">Birthday Error</span>
+        <br/>
+
+        <input type="submit" value="Submit player">
+    </form>
+</body>
+</html>

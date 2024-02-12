@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>InterCore Cloud</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles2.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Create your team</h1>
+<img th:src="@{images/InterCore.png}"/>
+<link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
+<form method="POST" th:action="@{/teammate}" th:object="${teammate}">
+
+    <div th:if="${#fields.hasErrors()}">
+        <span class="validationError">
+        Please correct the problems below and resubmit.
+        </span>
+    </div>
+    <label for="teamName">Team name: </label>
+    <input type="text" th:field="*{teamName}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('teamName')}"
+          th:errors="*{surname}">Team name Error</span>
+    <br/>
+    <input type="submit" value="Submit team">
+</form>
+</body>
+</html>

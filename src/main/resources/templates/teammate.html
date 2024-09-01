@@ -4,9 +4,10 @@
     <title>InterCore Cloud</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/styles2.css}" />
-    <meta charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Rubik+Glitch+Pop&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/styles2.css}"/>
+    <meta charset="utf-8"/>
 </head>
 <body>
 <h1>Create your team</h1>
@@ -33,7 +34,18 @@
           th:errors="*{cap}">Capitan name Error</span>
 
     <label for="game">Game: </label>
-    <input type="text" th:field="*{game}"/>
+    <div class="select">
+        <select id="standard-select">
+            <option disabled>Выберите дисциплину</option>
+            <option value="*{DOTA2}">Dota 2</option>
+            <option value="*{CS2}">Counter Strike 2</option>
+            <option value="*{VALORANT}">Valorant</option>
+            <option value="*{OVERWATCH}">Overwatch 2</option>
+            <option value="*{RAINBOW6}">RAINBOW6</option>
+            <option value="*{LOL}">League of Legends</option>
+            <option value="*{SOLOGAMES}">Solo Games</option>
+        </select>
+    </div>
     <span class="validationError"
           th:if="${#fields.hasErrors('game')}"
           th:errors="*{game}">Game name Error</span>

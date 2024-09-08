@@ -16,7 +16,6 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -29,12 +28,19 @@ public class TeammateController {
     @Autowired
     public TeammateController(TeammateRepository teammateRepository, MemberRepository memberRepository) {
         this.teammateRepository = teammateRepository;
-        this.memberRepository=memberRepository;
+        this.memberRepository = memberRepository;
+    }
+
+    @ModelAttribute(name = "teammate")
+    public Teammate teammate() {
+        return new Teammate();
     }
 
     @ModelAttribute
-    public Teammate teammate() {
-        return new Teammate();
+    public void addMembersToModel(Model model, Discipline.Type type) {
+        List<Member> members = new ArrayList<>();
+        memberRepository.findByDisciplinesIsStartingWith(type).forEach(i -> members.add(i));
+        model.addAttribute(members);
     }
 
     @GetMapping

@@ -1,7 +1,7 @@
 package intercore.messaging;
 
-import intercore.domain.MemberInformation;
+import intercore.domain.Member;
 
 public interface InformationMessagingService {
-    void sendInformation(MemberInformation information);
+    void sendInformation(Member information);
 }

@@ -1,7 +1,7 @@
 package intercore.application;
 
-import intercore.domain.MemberInformation;
+import intercore.domain.Member;
 
 public interface InformationReceiver {
-    MemberInformation receiveOrder();
+    Member receiveOrder();
 }

@@ -46,9 +46,13 @@
             <option value="*{SOLOGAMES}">Solo Games</option>
         </select>
     </div>
-    <span class="validationError"
-          th:if="${#fields.hasErrors('game')}"
-          th:errors="*{game}">Game name Error</span>
+
+    <label for="game">Members list: </label>
+    <div th:each="discipline : ${game}">
+        <input th:field="*{disciplines}" type="checkbox"
+               th:value="${discipline.id}"/>
+        <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+    </div>
 
     <input type="submit" value="Submit team">
 </form>

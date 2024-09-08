@@ -34,9 +34,6 @@ public class SecurityConfig {
                         .permitAll()
                         .defaultSuccessUrl("/home")
                 )
-                .csrf((csrf) -> csrf
-                        .ignoringRequestMatchers("/create*")
-                )
                 .build();
     }
 

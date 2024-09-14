@@ -13,7 +13,7 @@
 <h1>Create your team</h1>
 <img th:src="@{images/InterCore.png}"/>
 <link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
-<form method="POST" th:action="@{/teammate}" th:object="${teammate}">
+<form method="POST" th:action="@{/teammate}" th:object="${teammate}" modelAttribute="member">
 
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
@@ -47,11 +47,13 @@
         </select>
     </div>
 
-    <label for="game">Members list: </label>
-    <div th:each="discipline : ${game}">
-        <input th:field="*{disciplines}" type="checkbox"
-               th:value="${discipline.id}"/>
-        <span th:text="${discipline.name}">DISCIPLINE</span><br/>
+    <div class="member-group" id="game" >
+        <label>Members list: </label>
+        <div th:each="member : ${game}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
     </div>
 
     <input type="submit" value="Submit team">

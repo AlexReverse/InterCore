@@ -47,7 +47,7 @@ public class Member implements Serializable {
     private String birthday;
 
     @Size(min = 1, message="Choose discipline!")
-    @ManyToMany(targetEntity = Discipline.class)
+    @OneToMany(targetEntity = Discipline.class)
     private List<Discipline> disciplines;
 
     @PrePersist

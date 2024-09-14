@@ -2,9 +2,10 @@ package intercore.web;
 
 import intercore.data.MemberRepository;
 import intercore.data.TeammateRepository;
-import intercore.domain.Discipline;
 import intercore.domain.Member;
 import intercore.domain.Teammate;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +37,11 @@ public class TeammateController {
         return new Teammate();
     }
 
-    @ModelAttribute
-    public void addMembersToModel(Model model, Discipline.Type type) {
+    @ModelAttribute(value = "member")
+    public void addMembersToModel(Model model) {
         List<Member> members = new ArrayList<>();
-        memberRepository.findByDisciplinesIsStartingWith(type).forEach(i -> members.add(i));
-        model.addAttribute(members);
+        memberRepository.findByMember("DOTA2").forEach(i -> members.add(i));
+        model.addAttribute("game", members);
     }
 
     @GetMapping

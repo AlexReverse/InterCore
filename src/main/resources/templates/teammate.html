@@ -15,6 +15,75 @@
 <link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
 <form method="POST" th:action="@{/teammate}" th:object="${teammate}" modelAttribute="member">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <h1>Discipline</h1>
+    <p>Choose members:</p>
+    <div class="tab">
+        <button type="button" onclick="addMembers(event, 'DOTA2')">Dota 2</button>
+        <button type="button" onclick="addMembers(event, 'CS2')">Counter Strike 2</button>
+        <button type="button" onclick="addMembers(event, 'VALORANT')">Valorant</button>
+        <button type="button" onclick="addMembers(event, 'OVERWATCH')">Overwatch 2</button>
+        <button type="button" onclick="addMembers(event, 'RAINBOW6')">RAINBOW6</button>
+        <button type="button" onclick="addMembers(event, 'LOL')">League of Legends</button>
+        <button type="button" onclick="addMembers(event, 'SOLOGAMES')">Solo Games</button>
+    </div>
+    <div id="DOTA2" class="tabcontent">
+        <h3>Dota 2</h3>
+            <div th:each="member : ${dota2}">
+                <input th:field="*{member}" type="checkbox"
+                       th:value="${member.id}"/>
+                <span th:text="${member.nick}">MEMBER</span><br/>
+            </div>
+    </div>
+    <div id="CS2" class="tabcontent">
+        <h3>Counter Strike 2</h3>
+        <div th:each="member : ${cs2}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+    <div id="VALORANT" class="tabcontent">
+        <h3>Valorant</h3>
+        <div th:each="member : ${valorant}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+    <div id="OVERWATCH" class="tabcontent">
+        <h3>Overwatch 2</h3>
+        <div th:each="member : ${overwatch}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+    <div id="RAINBOW6" class="tabcontent">
+        <h3>Rainbow 6</h3>
+        <div th:each="member : ${rainbow6}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+    <div id="LOL" class="tabcontent">
+        <h3>League of Legends</h3>
+        <div th:each="member : ${lol}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+    <div id="SOLOGAMES" class="tabcontent">
+        <h3>Solo player</h3>
+        <div th:each="member : ${sologames}">
+            <input th:field="*{member}" type="checkbox"
+                   th:value="${member.id}"/>
+            <span th:text="${member.nick}">MEMBER</span><br/>
+        </div>
+    </div>
+
     <div th:if="${#fields.hasErrors()}">
         <span class="validationError">
         Please correct the problems below and resubmit.
@@ -33,29 +102,36 @@
           th:if="${#fields.hasErrors('cap')}"
           th:errors="*{cap}">Capitan name Error</span>
 
-    <label for="game">Game: </label>
-    <div class="select">
-        <select id="standard-select">
-            <option disabled>Выберите дисциплину</option>
-            <option value="*{DOTA2}">Dota 2</option>
-            <option value="*{CS2}">Counter Strike 2</option>
-            <option value="*{VALORANT}">Valorant</option>
-            <option value="*{OVERWATCH}">Overwatch 2</option>
-            <option value="*{RAINBOW6}">RAINBOW6</option>
-            <option value="*{LOL}">League of Legends</option>
-            <option value="*{SOLOGAMES}">Solo Games</option>
-        </select>
-    </div>
+    <!--    <label for="game">Game: </label>-->
+    <!--    <div class="select">-->
+    <!--        <select id="standard-select">-->
+    <!--            <option disabled>Выберите дисциплину</option>-->
+    <!--            <option value="*{DOTA2}">Dota 2</option>-->
+    <!--            <option value="*{CS2}">Counter Strike 2</option>-->
+    <!--            <option value="*{VALORANT}">Valorant</option>-->
+    <!--            <option value="*{OVERWATCH}">Overwatch 2</option>-->
+    <!--            <option value="*{RAINBOW6}">RAINBOW6</option>-->
+    <!--            <option value="*{LOL}">League of Legends</option>-->
+    <!--            <option value="*{SOLOGAMES}">Solo Games</option>-->
+    <!--        </select>-->
+    <!--    </div>-->
 
-    <div class="member-group" id="game" >
-        <label>Members list: </label>
-        <div th:each="member : ${game}">
-            <input th:field="*{member}" type="checkbox"
-                   th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
-        </div>
-    </div>
 
+    <script>
+        function addMembers(evt, type) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(type).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+    </script>
     <input type="submit" value="Submit team">
 </form>
 </body>

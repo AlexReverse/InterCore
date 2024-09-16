@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-@Profile("!default")
+@Profile("!default") //Загружает данные, только если это не дефолтная загрузка.
 @Configuration
 public class DevelopmentConfig {
     @Bean
@@ -29,20 +29,20 @@ public class DevelopmentConfig {
                 repo.save(new Discipline("CS2-IGL", "IGL", Discipline.Type.CS2));
                 repo.save(new Discipline("CS2-FLEX", "FLEX", Discipline.Type.CS2));
 
-                repo.save(new Discipline("Valorant-CONTROLLER", "CONTROLLER", Discipline.Type.VALORANT));
-                repo.save(new Discipline("Valorant-SENTINEL", "SENTINEL", Discipline.Type.VALORANT));
-                repo.save(new Discipline("Valorant-INITIATOR", "INITIATOR", Discipline.Type.VALORANT));
-                repo.save(new Discipline("Valorant-DUELIST", "DUELIST", Discipline.Type.VALORANT));
-                repo.save(new Discipline("Valorant-FLEX", "FLEX", Discipline.Type.VALORANT));
+                repo.save(new Discipline("VALORANT-CONTROLLER", "CONTROLLER", Discipline.Type.VALORANT));
+                repo.save(new Discipline("VALORANT-SENTINEL", "SENTINEL", Discipline.Type.VALORANT));
+                repo.save(new Discipline("VALORANT-INITIATOR", "INITIATOR", Discipline.Type.VALORANT));
+                repo.save(new Discipline("VALORANT-DUELIST", "DUELIST", Discipline.Type.VALORANT));
+                repo.save(new Discipline("VALORANT-FLEX", "FLEX", Discipline.Type.VALORANT));
 
-                repo.save(new Discipline("Overwatch2-TANK", "TANK", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-DPSFLEX", "DPS FLEX", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-DPSHS", "DPS HS", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-DPSPROJECTILE", "DPS PROJECTILE", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-HEALERFLEX", "HEALER FLEX", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-HEALERMAIN", "HEALER MAIN", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-HEALEROFF", "HEALER OFF", Discipline.Type.OVERWATCH));
-                repo.save(new Discipline("Overwatch2-FLEX", "FLEX", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-TANK", "TANK", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-DPSFLEX", "DPS FLEX", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-DPSHS", "DPS HS", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-DPSPROJECTILE", "DPS PROJECTILE", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-HEALERFLEX", "HEALER FLEX", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-HEALERMAIN", "HEALER MAIN", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-HEALEROFF", "HEALER OFF", Discipline.Type.OVERWATCH));
+                repo.save(new Discipline("OVERWATCH-FLEX", "FLEX", Discipline.Type.OVERWATCH));
 
                 repo.save(new Discipline("RAINBOW6-HARDBREACH", "HARD BREACH", Discipline.Type.RAINBOW6));
                 repo.save(new Discipline("RAINBOW6-HARDBREACHSUPPORT", "HARD BREACH SUPPORT", Discipline.Type.RAINBOW6));

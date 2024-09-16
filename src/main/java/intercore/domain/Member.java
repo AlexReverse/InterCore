@@ -46,6 +46,8 @@ public class Member implements Serializable {
     @NotEmpty(message="Birthday must be like YYYY-MM-DD")
     private String birthday;
 
+    private Boolean onTeam = false;
+
     @Size(min = 1, message="Choose discipline!")
     @OneToMany(targetEntity = Discipline.class)
     private List<Discipline> disciplines;

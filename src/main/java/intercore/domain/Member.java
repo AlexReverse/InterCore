@@ -49,8 +49,7 @@ public class Member implements Serializable {
     private Boolean onTeam = false;
 
     @Size(min = 1, message="Choose discipline!")
-    @OneToMany(targetEntity = Discipline.class)
-    private List<Discipline> disciplines;
+    private List<String> disciplines;
 
     @PrePersist
     void placedAt(){

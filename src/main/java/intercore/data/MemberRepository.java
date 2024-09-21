@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface MemberRepository extends PagingAndSortingRepository<Member, Long>, CrudRepository<Member, Long> {
-    @Query(nativeQuery = true, value = "select m.*, md.* from member m, member_disciplines md where m.id=md.member_id and m.on_team = false and md.disciplines_id like %?1%")
+    @Query(nativeQuery = true, value = "select m.* from member m where m.on_team = false and m.disciplines[1] like %?1%")
     List<Member> findByMember(String type);
 
     @Transactional

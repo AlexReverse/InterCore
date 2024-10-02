@@ -29,7 +29,7 @@
             <div th:each="member : ${dota2}">
                 <input th:field="*{member}" type="checkbox"
                        th:value="${member.id}"/>
-                <span th:text="${member.rating}">MEMBER</span><br/>
+                <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
             </div>
     </div>
     <div id="CS2" class="tabcontent">
@@ -37,7 +37,7 @@
         <div th:each="member : ${cs2}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
     <div id="VALORANT" class="tabcontent">
@@ -45,7 +45,7 @@
         <div th:each="member : ${valorant}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
     <div id="OVERWATCH" class="tabcontent">
@@ -53,7 +53,7 @@
         <div th:each="member : ${overwatch}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="Nick name: ${member.nick} + Type: ${member.disciplines}" >MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
     <div id="RAINBOW6" class="tabcontent">
@@ -61,7 +61,7 @@
         <div th:each="member : ${rainbow6}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
     <div id="LOL" class="tabcontent">
@@ -69,7 +69,7 @@
         <div th:each="member : ${lol}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
     <div id="SOLOGAMES" class="tabcontent">
@@ -77,7 +77,7 @@
         <div th:each="member : ${sologames}">
             <input th:field="*{member}" type="checkbox"
                    th:value="${member.id}"/>
-            <span th:text="${member.nick}">MEMBER</span><br/>
+            <span th:text="${member.nick} + ${member.disciplines}">MEMBER</span><br/>
         </div>
     </div>
 

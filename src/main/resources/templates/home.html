@@ -6,13 +6,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" th:href="@{/style.css}" />
-    <meta charset="utf-8" />
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+    <meta charset="utf-8"/>
 </head>
 <header class="site-header">
 
     <div class="header-wrap">
-        <a class="logo" href="#0">
+        <a class="logo" href="#logo">
             <img alt="Логотип сайта" src="/images/head.jpg" width="60" height="60">
         </a>
 
@@ -31,11 +31,69 @@
         </nav>
     </div>
 
-
     <h1 class="site-title">Киберспорт РУДН “InterCore” | ССК "Дружба"</h1>
 </header>
+
 <body>
-<h1>Welcome to InterCore</h1>
 <link rel="shortcut icon" type="images/png" th:href="@{/images/favicon.png}"/>
+
+<div class="tab">
+    <button class="tablinks" onclick="openInfo(event, 'DOTA2')" id="defaultOpen">Dota 2</button>
+    <button class="tablinks" onclick="openInfo(event, 'CS2')">Counter Strike 2</button>
+    <button class="tablinks" onclick="openInfo(event, 'VALORANT')">Valorant</button>
+    <button class="tablinks" onclick="openInfo(event, 'OVERWATCH')">Overwatch 2</button>
+    <button class="tablinks" onclick="openInfo(event, 'RAINBOW6')">RAINBOW6</button>
+    <button class="tablinks" onclick="openInfo(event, 'LOL')">League of Legends</button>
+    <button class="tablinks" onclick="openInfo(event, 'SOLOGAMES')">Solo Games</button>
+</div>
+
+<div id="DOTA2" class="tabcontent">
+    <h3>Dota 2</h3>
+    <p>test</p>
+</div>
+<div id="CS2" class="tabcontent">
+    <h3>Counter Strike 2</h3>
+    <p>test</p>
+</div>
+<div id="VALORANT" class="tabcontent">
+    <h3>Valorant</h3>
+    <p>test</p>
+</div>
+<div id="OVERWATCH" class="tabcontent">
+    <h3>Overwatch 2</h3>
+    <p>test</p>
+</div>
+<div id="RAINBOW6" class="tabcontent">
+    <h3>Rainbow 6</h3>
+    <p>test</p>
+</div>
+<div id="LOL" class="tabcontent">
+    <h3>League of Legends</h3>
+    <p>test</p>
+</div>
+<div id="SOLOGAMES" class="tabcontent">
+    <h3>Solo player</h3>
+    <p>test</p>
+</div>
+
+<script>
+    function openInfo(evt, game) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(game).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+</script>
+
 </body>
 </html>
